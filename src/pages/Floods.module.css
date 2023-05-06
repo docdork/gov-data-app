@@ -1,5 +1,13 @@
+.container {
+}
+
 .floodInfo {
-    background-color: rgba(11, 29, 29, 0.571);
-    border: solid;
-    border-radius: 15px;
+  margin-bottom: 10px;
+  background-color: rgba(11, 29, 29, 0.571);
+  border: solid;
+  border-radius: 15px;
+}
+
+ul {
+    margin-top: 0;
 }

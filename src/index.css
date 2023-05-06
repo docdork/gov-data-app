@@ -1,6 +1,7 @@
 
 
 :root {
+  margin: 0;
   background-color: black;
   background: linear-gradient(
     90deg,
@@ -9,15 +10,14 @@
     rgba(11, 20, 22) 100%
   );
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-
-  color: rgba(255, 255, 255, 0.87);
-
-  height: 100%;
-
 }
+
 
 
 ul {
-  list-style: none;
-}
 
+  list-style-type: none;
+  margin: 10%;
+  margin-bottom: 30%;
+  padding: 0;
+}

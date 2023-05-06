@@ -7,12 +7,12 @@ import classes from "./Root.module.css";
 function RootLayout() {
   return (
     <>
-      <div className={classes.content}>
+      <div className={classes.header}>
         <MainNavigation />
-        <main>
-          <Outlet />
-        </main>
       </div>
+      <main>
+        <Outlet />
+      </main>
       <div className={classes.footer}>
         <Footer />
       </div>
@@ -21,10 +21,3 @@ function RootLayout() {
 }
 
 export default RootLayout;
-
-<body>
-  <div class="content">
-    <div class="content-inside">content</div>
-  </div>
-  <footer class="footer"></footer>
-</body>;

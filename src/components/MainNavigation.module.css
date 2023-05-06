@@ -1,7 +1,6 @@
 .header {
-  max-width: 60rem;
   margin: auto;
-  padding: 2rem;
+  margin-top: 20px;
   display: flex;
   justify-content: space-between;
 }
@@ -11,12 +10,26 @@
   gap: 1rem;
 }
 
-.list a {
-  text-decoration: none;
-  color: white;
+.list {
+  display: flex;
+  gap: 1rem;
 }
 
-.list a:hover,
+.list a {
+  text-decoration: none;
+  color: rgb(201, 193, 207);
+  border: solid;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+
 .list a.active {
-  color: rgb(69, 68, 121);
+  color: rgb(255, 255, 255);
+  box-shadow: 0 5px 20px rgba(145, 92, 182, 1);
+}
+
+.list a:hover{
+  color: rgb(219, 218, 238);
+  box-shadow: 0 5px 20px rgba(145, 92, 182, 1);
 }

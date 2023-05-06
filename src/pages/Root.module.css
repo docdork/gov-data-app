@@ -1,6 +1,39 @@
-.content {
-    min-height: calc(90vh - 150px);
-  }
-  .footer {
-    height: 50px;
-  }
+
+
+
+
+.header {
+  position: fixed;
+  height: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    180deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(44, 9, 121, 0.912) 62%,
+    rgb(16, 27, 29) 100%
+  );
+  color: rgb(255, 255, 255);
+  border-bottom: solid;
+  border-width: 1px;
+}
+
+
+.footer {
+  position: fixed;
+  height: 100px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    180deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(44, 9, 121, 0.852000175070028) 62%,
+    rgb(16, 27, 29) 100%
+  );
+  color: white;
+  border-top: solid;
+}

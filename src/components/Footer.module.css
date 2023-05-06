@@ -1,26 +1,26 @@
 .header {
-    max-width: 60rem;
-    margin: auto;
-    padding: 2rem;
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .list {
-    display: flex;
-    gap: 1rem;
-  }
-  
-  .list a {
-    text-decoration: none;
-    color: white;
-  }
-  
-  .list a:hover,
-  .list a.active {
-    color: rgb(69, 68, 121);
-  }
-  
-  .githubLogo {
-    width: 40px;
-  }
+  max-width: 60rem;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.list {
+  display: flex;
+  gap: 1rem;
+}
+
+
+.githubLogo {
+  width: 40px;
+  color: white;
+  border: solid;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 10px;
+
+}
+
+.githubLogo:hover {
+    box-shadow: 0 5px 20px rgba(145, 92, 182, 1);
+}
