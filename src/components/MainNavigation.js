@@ -18,6 +18,28 @@ function MainNavigation() {
               Home
             </NavLink>
           </li>
+          <li>
+            <NavLink
+              to="/floods"
+              className={({ isActive }) =>
+                isActive ? classes.active : undefined
+              }
+              end
+            >
+              Floods
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/police"
+              className={({ isActive }) =>
+                isActive ? classes.active : undefined
+              }
+              end
+            >
+              Police
+            </NavLink>
+          </li>
         </ul>
       </nav>
     </header>

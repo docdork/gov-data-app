@@ -1,3 +1,8 @@
 .content {
   text-align: center;
+  text-decoration: none;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  
 }

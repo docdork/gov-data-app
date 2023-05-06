@@ -1,10 +1,12 @@
 import React from 'react'
+import PageContent from '../components/PageContent';
+
 
 function Police() {
     return (
-        <div>
+        <PageContent>
             <h1>Police Page</h1>
-        </div>
+        </PageContent>
     )
 }
 
