@@ -1,11 +1,9 @@
 import classes from "./FloodForm.module.css";
 // import { useState } from "react";
 
+
+
 const FloodForm = (props) => {
-  
-
-  
-
   return (
     <div className={classes.all}>
       <form>

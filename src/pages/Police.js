@@ -1,13 +1,12 @@
-import React from 'react'
-import PageContent from '../components/PageContent';
+import classes from "./Police.module.css";
 
+import PageContent from "../components/PageContent";
 
-function Police() {
-    return (
-        <PageContent>
-            <h1>Police Page</h1>
-        </PageContent>
-    )
-}
+const Police = () => {
+  return (
+    <PageContent title={"Police"}>
+    </PageContent>
+  );
+};
 
 export default Police;

@@ -12,11 +12,11 @@ function Home() {
               <NavLink to="/floods">Floods</NavLink>
             </div>
           </li>
-          <li>
+          {/* <li>
             <div className={classes.link}>
               <NavLink to="/police">Police</NavLink>
             </div>
-          </li>
+          </li> */}
         </ul>
       </PageContent>
     </div>

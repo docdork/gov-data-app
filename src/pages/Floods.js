@@ -2,7 +2,8 @@ import React from "react";
 import PageContent from "../components/PageContent";
 import { useState, useEffect } from "react";
 import classes from "./Floods.module.css";
-import FloodForm from "../components/FloodForm";
+import FloodFilterModal from "../components/FloodFilterModal";
+import FloodDetailModal from "../components/FloodDetailModal";
 
 function Floods(props) {
   const [isLoading, setIsLoading] = useState(false);
@@ -12,6 +13,12 @@ function Floods(props) {
   const severityChangeHandler = (event) => {
     setFloodValue(event.target.value);
   };
+  const [showFilter, setShowFilter] = useState(false);
+  const [showDetail, setShowDetail] = useState(false);
+  const [floodMessage, setFloodMessage] = useState("None");
+  const [floodId, setFloodId] = useState();
+  const [floodDesc, setFloodDesc] = useState();
+  const [floodArea, setFloodArea] = useState();
 
   useEffect(() => {
     async function fetchEvents() {
@@ -29,43 +36,83 @@ function Floods(props) {
       setIsLoading(false);
     }
     fetchEvents();
-    console.log(fetchedFloods);
   }, [floodValue]);
 
+  const detailClickHandler = (event) => {
+    setShowDetail(true);
 
-  console.log(fetchedFloods);
+    const id = event.target.parentNode.getAttribute("data-id");
+    const message = event.target.parentNode.getAttribute("data-message");
+    const area = event.target.parentNode.getAttribute("data-area");
+    const desc = event.target.parentNode.getAttribute("data-description");
 
+    setFloodMessage(message);
+    setFloodId(id);
+    setFloodDesc(desc);
+    setFloodArea(area);
+  };
+
+  const detailCloseHandler = () => {
+    setShowDetail(false);
+    setFloodMessage("None");
+  };
 
   return (
-    <PageContent title={"Floods"}>
-      <FloodForm formChange={severityChangeHandler} floodValue={floodValue} />
+    <>
+      <PageContent title={"Floods"}>
+        <div>
+          <button onClick={() => setShowFilter(true)}>Show Filter</button>
+        </div>
+        <FloodFilterModal
+          onClose={() => setShowFilter(false)}
+          show={showFilter}
+          formChange={severityChangeHandler}
+          floodValue={floodValue}
+        />
 
-      <p>Flood Severity {floodValue} and worse.</p>
-      {fetchedFloods.length===0 && <h2>Nothing to Show</h2>}
-      {isLoading && <p>Loading...</p>}
-      {error && <p>{error}</p>}
-      <div className={classes.container}>
-        <ul className={classes.floodList}>
-          {fetchedFloods &&
-            fetchedFloods.map(
-              ({
-                floodAreaID,
-                description,
-                eaAreaName,
-                severityLevel,
-                message,
-              }) => (
-                <li key={floodAreaID} className={classes.floodInfo}>
-                  <h2>{description}</h2>
-                  <h3>{eaAreaName}</h3>
-                  <h4>Severity = {severityLevel}</h4>
-                  <p>{message}</p>
-                </li>
-              )
-            )}
-        </ul>
-      </div>
-    </PageContent>
+        <FloodDetailModal
+          onClose={detailCloseHandler}
+          show={showDetail}
+          floodDesc={floodDesc}
+          floodID={floodId}
+          floodMessage={floodMessage}
+          floodArea={floodArea}
+        />
+
+        <p>Flood Severity {floodValue} and worse.</p>
+        {fetchedFloods.length === 0 && <h2>Nothing to Show</h2>}
+        {isLoading && <p>Loading...</p>}
+        {error && <p>{error}</p>}
+        <div className={classes.container}>
+          <ul className={classes.floodList}>
+            {fetchedFloods &&
+              fetchedFloods.map(
+                ({
+                  floodAreaID,
+                  description,
+                  eaAreaName,
+                  severityLevel,
+                  message,
+                }) => (
+                  <li
+                    key={floodAreaID}
+                    className={classes.floodInfo}
+                    data-id={floodAreaID}
+                    data-message={message}
+                    data-description={description}
+                    data-area={eaAreaName}
+                  >
+                    <h2>{description}</h2>
+                    <h3>{eaAreaName}</h3>
+                    <h4>Severity = {severityLevel}</h4>
+                    <button onClick={detailClickHandler}>Details</button>
+                  </li>
+                )
+              )}
+          </ul>
+        </div>
+      </PageContent>
+    </>
   );
 }
 
