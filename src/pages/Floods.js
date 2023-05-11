@@ -83,8 +83,8 @@ function Floods(props) {
         {fetchedFloods.length === 0 && <h2>Nothing to Show</h2>}
         {isLoading && <p>Loading...</p>}
         {error && <p>{error}</p>}
-        <div className={classes.container}>
-          <ul className={classes.floodList}>
+        <div>
+          <ul>
             {fetchedFloods &&
               fetchedFloods.map(
                 ({
