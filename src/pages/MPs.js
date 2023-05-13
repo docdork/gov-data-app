@@ -10,29 +10,9 @@ const MPs = () => {
   const [error, setError] = useState(false);
   const [showDetail, setShowDetail] = useState(false);
   const [mpDetails, setMpDetails] = useState({});
-  const [detailMpId, setDetailMpId] = useState(172);
-  const [nameSearchTerm, setNameSearchTerm] = useState("search");
-  const [filteredList, setFilteredList] = useState([]);
-
-  //Fetch a list of MPs
-  useEffect(() => {
-    async function fetchEvents() {
-      setIsLoading(true);
-      const response = await fetch(
-        `https://members-api.parliament.uk/api/Members/search`
-      );
-
-      if (!response.ok) {
-        setError("Fetching MPs failed.");
-      } else {
-        const resData = await response.json();
-        setMpList(resData.items);
-        setFilteredList(resData.items);
-      }
-      setIsLoading(false);
-    }
-    fetchEvents();
-  }, [nameSearchTerm]);
+  const [detailMpId, setDetailMpId] = useState(3898);
+  const [detailConstituency, setDetailConstituency] = useState("");
+  const [detailParty, setDetailParty] = useState('');
 
   //Fetch MP Details
   useEffect(() => {
@@ -47,12 +27,32 @@ const MPs = () => {
       } else {
         const resData = await response.json();
         setMpDetails(resData.value);
+        setDetailConstituency( resData.value.latestHouseMembership.membershipFrom)
+        setDetailParty( resData.value.latestParty.name)
       }
       setIsLoading(false);
     }
     fetchEvents();
   }, [detailMpId]);
 
+  //Fetch a list of MPs
+  useEffect(() => {
+    async function fetchEvents() {
+      setIsLoading(true);
+      const response = await fetch(
+        `https://members-api.parliament.uk/api/Members/search`
+      );
+
+      if (!response.ok) {
+        setError("Fetching MPs failed.");
+      } else {
+        const resData = await response.json();
+        setMpList(resData.items);
+      }
+      setIsLoading(false);
+    }
+    fetchEvents();
+  }, []);
 
   const detailCloseHandler = () => {
     setShowDetail(false);
@@ -65,7 +65,7 @@ const MPs = () => {
     setShowDetail(true);
   };
   const optionChangeHandler = (event) => {
-    const id = document.getElementById("mpSelector").value;;
+    const id = document.getElementById("mpSelector").value;
     setDetailMpId(id);
     setShowDetail(true);
   };
@@ -89,17 +89,6 @@ const MPs = () => {
           ))}
       </select>
 
-      <MPDetail
-        key={mpDetails.id}
-        onClose={detailCloseHandler}
-        show={showDetail}
-        mpId={mpDetails.id}
-        mpName={mpDetails.nameFullTitle}
-        pic={mpDetails.thumbnailUrl}
-        constituency={mpDetails.latestHouseMembership.membershipFrom}
-        party={mpDetails.latestParty.name}
-        isLoading={isLoading}
-      />
       <ul>
         {mpList &&
           mpList.map(({ value }) => (
@@ -110,10 +99,22 @@ const MPs = () => {
               data-id={value.id}
             >
               <h2>{value.nameFullTitle}</h2>
+              <p>{value.id}</p>
               <button onClick={detailClickHandler}>Details</button>
             </li>
           ))}
       </ul>
+
+      <MPDetail
+        key={mpDetails.id}
+        onClose={detailCloseHandler}
+        show={showDetail}
+        mpId={mpDetails.id}
+        mpName={mpDetails.nameFullTitle}
+        pic={mpDetails.thumbnailUrl}
+        constituency={detailConstituency}
+        party={detailParty}
+      />
     </PageContent>
   );
 };
