@@ -28,13 +28,12 @@ const MPs = () => {
 
   return (
     <PageContent title={"MPs"}>
-      {console.log(mpList)}
       <ul>
         {mpList &&
           mpList.map(({ value }) => (
             <li
               key={value.id}
-              mpName={value.nameFullTitle}
+              mpname={value.nameFullTitle}
               className={classes.mpInfo}
             >
                 <h2>{value.nameFullTitle}</h2>

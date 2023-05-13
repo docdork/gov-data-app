@@ -9,10 +9,6 @@ function Floods(props) {
   const [fetchedFloods, setFetchedFloods] = useState([]);
   const [error, setError] = useState("");
   const [floodValue, setFloodValue] = useState(4);
-  const severityChangeHandler = (event) => {
-    setFloodValue(event.target.value);
-  };
-  const [showFilter, setShowFilter] = useState(false);
   const [showDetail, setShowDetail] = useState(false);
   const [floodMessage, setFloodMessage] = useState("None");
   const [floodId, setFloodId] = useState();
@@ -56,27 +52,39 @@ function Floods(props) {
     setFloodMessage("None");
   };
 
-  const filterClickHandler = (event) => {
-    event.preventDefault();
-    console.log("filter button clicked");
-    setShowFilter(true);
+  // const filterClickHandler = (event) => {
+  //   event.preventDefault();
+  //   console.log("filter button clicked");
+  //   setShowFilter(true);
+  // };
+  const severityChangeHandler = (event) => {
+    setFloodValue(event.target.value);
   };
 
   return (
     <>
       <PageContent title={"Floods"}>
-      <form>
+        <form>
           <label htmlFor="number-input">
             What Severity do you want to see?
           </label>
-          <input
+          {/* <input
             id="number-input"
             type="number"
             value={floodValue}
             onChange={severityChangeHandler}
             min="1"
             max="4"
-          />
+          />*/}
+
+          <input
+            type="range"
+            id="number-input"
+            name="severity"
+            min="0"
+            max="4"
+            value={floodValue}
+            onChange={severityChangeHandler}/>
         </form>
 
         <FloodDetailModal

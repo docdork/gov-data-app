@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 import PageContent from "../components/PageContent";
 import PoliceDetailModal from "../components/PoliceDetailModal";
-import ForceFilterModal from "../components/ForceFilterModal";
+
 
 const Police = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -77,7 +77,13 @@ const Police = () => {
       {isLoading && <p>Loading...</p>}
       {error && <p>{error}</p>}
 
-      <ForceFilterModal changer={filterChangeHandler} />
+      <form>
+        <input
+          id="forces-filter"
+          placeholder="Filter by Force"
+          onChange={filterChangeHandler}
+        />
+      </form>
 
       <PoliceDetailModal
         onClose={detailCloseHandler}

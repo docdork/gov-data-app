@@ -19,3 +19,11 @@ ul {
     margin-bottom: 200px;
 }
 
+label {
+  margin: 10px;
+}
+
+input {
+  padding: 10px;
+  border-radius: 10px;
+}

@@ -1,4 +1,4 @@
-import classes from "./FloodDetailModal.module.css";
+import classes from "./DetailModal.module.css";
 
 const FloodDetailModal = (props) => {
 
@@ -8,7 +8,7 @@ const FloodDetailModal = (props) => {
 
 
   return (
-    <div className={classes.modal}>
+    <div className={classes.modal} onClick={props.onClose}>
       <div className={classes.modalContent}>
         <div className={classes.modalHeader}>
           <h4 className={classes.modalTitle}>Flood Details</h4>

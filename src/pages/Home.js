@@ -1,27 +1,22 @@
 import PageContent from "../components/PageContent";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import classes from "./Home.module.css";
 
 function Home() {
   return (
-    <div>
-      <PageContent title={"Pick an Info Page"}>
-        <ul>
-          <li>
-            <NavLink to="/floods">Floods</NavLink>
-          </li>
-          <li>
-            <NavLink to="/police">Police</NavLink>
-          </li>
-          <li>
-            <Link to='/mps'>
-            
-              MPs
-            </Link>
-          </li>
-        </ul>
-      </PageContent>
-    </div>
+    <PageContent title={"Pick an Info Page"}>
+      <ul className={classes.list}>
+        <li>
+          <NavLink to="/floods">Floods</NavLink>
+        </li>
+        <li>
+          <NavLink to="/police">Police</NavLink>
+        </li>
+        <li>
+          <NavLink to="/mps">MPs</NavLink>
+        </li>
+      </ul>
+    </PageContent>
   );
 }
 
