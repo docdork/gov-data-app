@@ -37,3 +37,12 @@
   color: white;
   border-top: solid;
 }
+
+@media screen and (max-width: 600px) {
+  .header {
+    height: 85px;
+  }
+  .footer {
+    height: 80px;
+  }
+}

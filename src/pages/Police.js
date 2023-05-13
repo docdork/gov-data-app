@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import PageContent from "../components/PageContent";
 import PoliceDetailModal from "../components/PoliceDetailModal";
 
-
 const Police = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
@@ -12,7 +11,7 @@ const Police = () => {
   const [showDetail, setShowDetail] = useState(false);
   const [filteredForces, setFilteredForces] = useState([]);
   const [forceDetails, setForceDetails] = useState([]);
-  const [detailForceID, setDetailForceID] = useState("cambridgeshire");
+  const [detailForceID, setDetailForceID] = useState("");
 
   useEffect(() => {
     async function fetchForceDetails() {
@@ -73,10 +72,6 @@ const Police = () => {
 
   return (
     <PageContent title={"Police"}>
-      {fetchedForces === 0 && <h2>Nothing to Show</h2>}
-      {isLoading && <p>Loading...</p>}
-      {error && <p>{error}</p>}
-
       <form>
         <input
           id="forces-filter"
@@ -84,6 +79,10 @@ const Police = () => {
           onChange={filterChangeHandler}
         />
       </form>
+
+      {fetchedForces === 0 && <h2>Nothing to Show</h2>}
+      {isLoading && <p>Loading...</p>}
+      {error && <p>{error}</p>}
 
       <PoliceDetailModal
         onClose={detailCloseHandler}

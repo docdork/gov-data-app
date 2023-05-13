@@ -10,7 +10,6 @@
   gap: 1rem;
 }
 
-
 .githubLogo {
   width: 40px;
   color: white;
@@ -18,9 +17,14 @@
   padding: 10px;
   border-radius: 10px;
   margin-top: 10px;
-
 }
 
 .githubLogo:hover {
-    box-shadow: 0 5px 20px rgba(145, 92, 182, 1);
+  box-shadow: 0 5px 20px rgba(145, 92, 182, 1);
+}
+
+@media screen and (max-width: 600px) {
+  .githubLogo {
+    width: 25px;
+  }
 }

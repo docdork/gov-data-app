@@ -9,6 +9,7 @@
   align-items: center;
   justify-content: center;
   color: black;
+  height: 700px;
 }
 
 .modalContent {
@@ -34,11 +35,16 @@
 }
 
 ul {
-  margin: 10px;
+  margin: 0;
 }
 
 .url {
   font-size: 1.5rem;
+}
+
+img {
+  width: 200px;
+  margin: 0;
 }
 
 @media only screen and (max-width: 600px) {
@@ -59,6 +65,6 @@ ul {
 
   .modalContent {
     font-size: 0.75rem;
-    max-height: 400px;
   }
 }
+
