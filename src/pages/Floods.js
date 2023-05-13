@@ -2,7 +2,6 @@ import React from "react";
 import PageContent from "../components/PageContent";
 import { useState, useEffect } from "react";
 import classes from "./Floods.module.css";
-import FloodFilterModal from "../components/FloodFilterModal";
 import FloodDetailModal from "../components/FloodDetailModal";
 
 function Floods(props) {
@@ -57,18 +56,28 @@ function Floods(props) {
     setFloodMessage("None");
   };
 
+  const filterClickHandler = (event) => {
+    event.preventDefault();
+    console.log("filter button clicked");
+    setShowFilter(true);
+  };
+
   return (
     <>
       <PageContent title={"Floods"}>
-        <div>
-          <button onClick={() => setShowFilter(true)}>Show Filter</button>
-        </div>
-        <FloodFilterModal
-          onClose={() => setShowFilter(false)}
-          show={showFilter}
-          formChange={severityChangeHandler}
-          floodValue={floodValue}
-        />
+      <form>
+          <label htmlFor="number-input">
+            What Severity do you want to see?
+          </label>
+          <input
+            id="number-input"
+            type="number"
+            value={floodValue}
+            onChange={severityChangeHandler}
+            min="1"
+            max="4"
+          />
+        </form>
 
         <FloodDetailModal
           onClose={detailCloseHandler}
@@ -84,7 +93,7 @@ function Floods(props) {
         {isLoading && <p>Loading...</p>}
         {error && <p>{error}</p>}
         <div>
-          <ul>
+          <ul className={classes.floodList}>
             {fetchedFloods &&
               fetchedFloods.map(
                 ({

@@ -17,7 +17,7 @@ const FloodDetailModal = (props) => {
           <h3> {props.floodDesc}</h3>
           <h4>{props.floodArea}</h4>
           <h4>Flood ID: {props.floodID}</h4>
-          <p><b>Warning Description:</b> {props.floodMessage}</p>
+          {props.floodMessage && <p><b>Warning Description:</b> {props.floodMessage} </p>}
         </div>
         <div className={classes.modalFooter}>
           <button onClick={props.onClose} className={classes.button}>Close</button>

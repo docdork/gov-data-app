@@ -8,6 +8,7 @@ import Floods from './pages/Floods';
 import Police from './pages/Police';
 import ErrorPage from './pages/ErrorPage';
 import RootLayout from './pages/Root';
+import MPs from './pages/MPs';
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,7 @@ const router = createBrowserRouter([
       { index: true, element: <Home /> },
       {path: 'floods', element: <Floods/>},
       {path: 'police', element: <Police/>},
+      {path: 'mps', element: <MPs/>},
     ]}
 ]);
 

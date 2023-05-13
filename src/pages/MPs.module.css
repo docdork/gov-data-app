@@ -1,11 +1,11 @@
-.policeInfo {
+.mpInfo {
     margin-bottom: 10px;
     background-color: rgba(11, 29, 29, 0.571);
     border: solid;
     border-radius: 15px;
   }
   
-  .policeInfo:hover {
+  .mpInfo:hover {
     background-color: rgba(28, 60, 60, 0.571);
   
     box-shadow: 0 5px 20px rgba(145, 92, 182, 1);
@@ -16,5 +16,3 @@
       margin-top: 0;
       margin-bottom: 200px;
   }
-  
-  

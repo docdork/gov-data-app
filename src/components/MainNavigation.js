@@ -40,6 +40,17 @@ function MainNavigation() {
               Police
             </NavLink>
           </li>
+          <li>
+            <NavLink
+              to="/mps"
+              className={({ isActive }) =>
+                isActive ? classes.active : undefined
+              }
+              end
+            >
+              MPs
+            </NavLink>
+          </li>
         </ul>
       </nav>
     </header>
