@@ -6,7 +6,7 @@ const MPDetail = (props) => {
   }
 
   if (props.isLoading) {
-    return (<h1>Loading...</h1>)
+    return <h1>Loading...</h1>;
   }
 
   return (
@@ -16,23 +16,13 @@ const MPDetail = (props) => {
           <h4 className={classes.modalTitle}>MP Details</h4>
         </div>
         <div className={classes.modalBody}>
-          <ul>
-            <li>
-              <h2>{props.mpName}</h2>
-            </li>
-            <li>
-              <h3>{props.constituency}</h3>
-            </li>
-            <li>
-              <h4>{props.party}</h4>
-            </li>
-            <li>
-              <img
-                src={`https://members-api.parliament.uk/api/Members/${props.mpId}/Thumbnail`}
-                alt={props.mpName}
-              />
-            </li>
-          </ul>
+          <h2>{props.mpName}</h2>
+          <h3>{props.constituency}</h3>
+          <h4>{props.party}</h4>
+          <img
+            src={`https://members-api.parliament.uk/api/Members/${props.mpId}/Thumbnail`}
+            alt={props.mpName}
+          />
         </div>
         <div className={classes.modalFooter}>
           <button onClick={props.onClose} className={classes.button}>
