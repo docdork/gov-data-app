@@ -11,6 +11,8 @@ const MPs = () => {
   const [showDetail, setShowDetail] = useState(false);
   const [mpDetails, setMpDetails] = useState({});
   const [detailMpId, setDetailMpId] = useState(172);
+  const [nameSearchTerm, setNameSearchTerm] = useState("search");
+  const [filteredList, setFilteredList] = useState([]);
 
   //Fetch a list of MPs
   useEffect(() => {
@@ -25,12 +27,12 @@ const MPs = () => {
       } else {
         const resData = await response.json();
         setMpList(resData.items);
+        setFilteredList(resData.items);
       }
       setIsLoading(false);
     }
-    console.log("list of mps fetch");
     fetchEvents();
-  }, []);
+  }, [nameSearchTerm]);
 
   //Fetch MP Details
   useEffect(() => {
@@ -48,11 +50,9 @@ const MPs = () => {
       }
       setIsLoading(false);
     }
-
     fetchEvents();
   }, [detailMpId]);
 
-  console.log(mpDetails);
 
   const detailCloseHandler = () => {
     setShowDetail(false);
@@ -64,6 +64,11 @@ const MPs = () => {
     setDetailMpId(id);
     setShowDetail(true);
   };
+  const optionChangeHandler = (event) => {
+    const id = document.getElementById("mpSelector").value;;
+    setDetailMpId(id);
+    setShowDetail(true);
+  };
 
   return (
     <PageContent title={"MPs"}>
@@ -71,7 +76,21 @@ const MPs = () => {
       {isLoading && <p>Loading...</p>}
       {error && <p>{error}</p>}
 
+      <select
+        className={classes.selector}
+        id="mpSelector"
+        onChange={optionChangeHandler}
+      >
+        {mpList &&
+          mpList.map(({ value }) => (
+            <option key={value.id} value={value.id}>
+              {value.nameFullTitle}
+            </option>
+          ))}
+      </select>
+
       <MPDetail
+        key={mpDetails.id}
         onClose={detailCloseHandler}
         show={showDetail}
         mpId={mpDetails.id}
@@ -91,7 +110,6 @@ const MPs = () => {
               data-id={value.id}
             >
               <h2>{value.nameFullTitle}</h2>
-              {/* <p>{value.id}</p> */}
               <button onClick={detailClickHandler}>Details</button>
             </li>
           ))}

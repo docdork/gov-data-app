@@ -11,7 +11,7 @@ const Police = () => {
   const [showDetail, setShowDetail] = useState(false);
   const [filteredForces, setFilteredForces] = useState([]);
   const [forceDetails, setForceDetails] = useState([]);
-  const [detailForceID, setDetailForceID] = useState("");
+  const [detailForceID, setDetailForceID] = useState("cumbria");
 
   useEffect(() => {
     async function fetchForceDetails() {
@@ -40,6 +40,7 @@ const Police = () => {
       const response = await fetch(`https://data.police.uk/api/forces`);
 
       if (!response.ok) {
+        console.log('fetching forces failed');
         setError("Fetching Forces failed.");
       } else {
         const resData = await response.json();
@@ -62,6 +63,10 @@ const Police = () => {
   const filterChangeHandler = (event) => {
     setFilteredForces(
       fetchedForces.filter((force) => {
+        // console.log('force');
+        // console.log(force);
+        // console.log(force.name.toLowerCase().indexOf(event.target.value.toLowerCase()) >
+        // -1)
         return (
           force.name.toLowerCase().indexOf(event.target.value.toLowerCase()) >
           -1

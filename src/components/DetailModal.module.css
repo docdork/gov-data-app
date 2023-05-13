@@ -1,7 +1,7 @@
 .modal {
   position: fixed;
   left: 0;
-  top: 0;
+  top: 100px;
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.364);
@@ -9,7 +9,7 @@
   align-items: center;
   justify-content: center;
   color: black;
-  height: 700px;
+  height:80%;
 }
 
 .modalContent {
@@ -67,4 +67,3 @@ img {
     font-size: 0.75rem;
   }
 }
-
