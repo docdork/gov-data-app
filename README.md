@@ -15,6 +15,6 @@ Police - Fetches a list of forces.  This list can then be filtered to the desire
 
 MPs - I prefer the way this API is presented.  2 diferent ways of sending an additional request to the API and fetching MP details.  Option selector, polulated by the initial returned MP list, and clicking on the details button.  Both ways return details from a seperate API using ID from from the first MP list.
 
-P{oints for future Apps - More commenting.  
+Points for future Apps - More commenting, the code was getting borderline difficult to follow.  
                           Use context or Redux, it may make the code neater, although what I have works fine and I feel I can follow the code better.
                           Consolidate the CSS a bit more for the pages, like I have for the Detail modals.
