@@ -18,3 +18,4 @@ MPs - I prefer the way this API is presented.  2 diferent ways of sending an add
 Points for future Apps - More commenting, the code was getting borderline difficult to follow.  
                           Use context or Redux, it may make the code neater, although what I have works fine and I feel I can follow the code better.
                           Consolidate the CSS a bit more for the pages, like I have for the Detail modals.
+                          Fix the bit that keeps showing Dianne Abbot in between loading new MPs.
