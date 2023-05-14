@@ -12,6 +12,7 @@
 
 .githubLogo {
   width: 40px;
+  height: 40px;
   color: white;
   border: solid;
   padding: 10px;
@@ -26,5 +27,6 @@
 @media screen and (max-width: 600px) {
   .githubLogo {
     width: 25px;
+    height: 25px;
   }
 }

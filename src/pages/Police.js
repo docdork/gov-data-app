@@ -63,10 +63,6 @@ const Police = () => {
   const filterChangeHandler = (event) => {
     setFilteredForces(
       fetchedForces.filter((force) => {
-        // console.log('force');
-        // console.log(force);
-        // console.log(force.name.toLowerCase().indexOf(event.target.value.toLowerCase()) >
-        // -1)
         return (
           force.name.toLowerCase().indexOf(event.target.value.toLowerCase()) >
           -1

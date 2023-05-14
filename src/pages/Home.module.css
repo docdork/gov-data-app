@@ -4,10 +4,9 @@
   .list {
     display: flex;
     gap: 1rem;
-    display: flex;
     justify-content: center;
     align-items: center;
-    height: 80px;
+    height: 200px;
     font-size: 2rem;;
   }
   
@@ -24,11 +23,6 @@
         font-size: 1.25rem;
     }
     
-  }
-  
-  .list a.active {
-    color: rgb(255, 255, 255);
-    box-shadow: 0 5px 20px rgba(145, 92, 182, 1);
   }
   
   .list a:hover{

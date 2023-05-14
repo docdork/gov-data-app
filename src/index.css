@@ -1,6 +1,5 @@
 :root {
   margin: 0;
-  background-color: black;
   background: linear-gradient(
     90deg,
     rgba(2, 0, 36, 1) 0%,
@@ -12,7 +11,6 @@
 
 ul {
   list-style-type: none;
-  margin: 10%;
   margin-bottom: 30%;
   padding: 0;
 }

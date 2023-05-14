@@ -99,7 +99,6 @@ const MPs = () => {
               data-id={value.id}
             >
               <h2>{value.nameFullTitle}</h2>
-              <p>{value.id}</p>
               <button onClick={detailClickHandler}>Details</button>
             </li>
           ))}

@@ -52,11 +52,6 @@ function Floods(props) {
     setFloodMessage("None");
   };
 
-  // const filterClickHandler = (event) => {
-  //   event.preventDefault();
-  //   console.log("filter button clicked");
-  //   setShowFilter(true);
-  // };
   const severityChangeHandler = (event) => {
     setFloodValue(event.target.value);
   };
@@ -68,14 +63,6 @@ function Floods(props) {
           <label htmlFor="number-input">
             What Severity do you want to see?
           </label>
-          {/* <input
-            id="number-input"
-            type="number"
-            value={floodValue}
-            onChange={severityChangeHandler}
-            min="1"
-            max="4"
-          />*/}
 
           <input
             type="range"

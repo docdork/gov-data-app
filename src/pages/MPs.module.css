@@ -8,7 +8,7 @@
 .mpInfo:hover {
   background-color: rgba(28, 60, 60, 0.571);
 
-  box-shadow: 0 5px 20px rgba(145, 92, 182, 1);
+  box-shadow: 0 -10px 20px rgba(145, 92, 182, 1);
 }
 
 ul {
